@@ -1,11 +1,20 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.datasets import make_regression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
 X = np.array([[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]])  # Feature
 y = np.array([35000, 40000, 45000, 50000, 60000, 65000, 70000, 75000, 80000, 85000])  # Target
 
+X,y = make_regression(
+    n_samples=100,
+    n_features=1,
+    noise=10,
+    random_state=42
+)
+print("X=",X)
+print("y=",y)
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2, train_size=None, random_state=42)
 
 
